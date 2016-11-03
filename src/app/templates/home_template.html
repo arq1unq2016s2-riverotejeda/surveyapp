@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+    <body>
+        <div class="container">
+            <div class="jumbotron">
+                <h2>Encuesta de preinscripción</h2>
+                <p>Este formulario busca relevar la intención de inscripción para la carrera LIDS en el 2do semestre de 2016, como paso previo a la inscripción y con miras a poder organizar el proceso de inscripción de manera mucho más ordenada. Este relevamiento NO ES VINCULANTE, lo cual quiere decir que NO SE GARANTIZA que cursen en lo que anotan aquí (aunque existe una probabilidad alta de que así sea, si eligen según las recomendaciones usuales... Normalmente ante dos personas que quieren inscribirse en una materia, y si hay problemas de cupo, se le da prioridad a la que pidió esa materia en la encuesta).
+                </p>
+            </div>
+            <div>
+                <div>
+                    <form *ngIf="active" (ngSubmit)="onSubmit()" #surveyForm="ngForm">
+                        <div class="form-group">
+                            <label for="student_name">Nombre</label>
+                            <input type="text" class="form-control" id="student_name"
+                                   required
+                                   [(ngModel)]="model.student_name" name="student_name"
+                                   #student_name="ngModel" >
+                            <div [hidden]="student_name.valid || student_name.pristine"
+                                 class="alert alert-danger">
+                                Name is required
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="legajo">Legajo</label>
+                            <input type="text" class="form-control" id="legajo"
+                                   [(ngModel)]="model.legajo" name="legajo" >
+                        </div>
+                        <div class="form-group">
+                            <label for="subject_name">Materias</label>
+
+                            <li *ngFor="let subject of mySubjects">
+                                <label>{{ subject.subject_name }}</label>
+                                <select class="form-control" id="subject_name" required
+                                         (change)="addSubject(subject.subject_name, $event)">
+                                    <option selected disabled></option> <!-- ver si hay una mejor manera de generar un default vacio-->
+                                    <option *ngFor="let p of subject.general_options" [value]="p">{{p}}</option>
+                                </select>
+                            </li>
+                        </div>
+                        <button type="submit" class="btn btn-default" [disabled]="!surveyForm.form.valid">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
