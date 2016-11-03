@@ -21,7 +21,7 @@ export class SurveyService {
         let headers    = new Headers({ 'Content-Type': 'application/json' }); // ... Set content type to JSON
 
         return this._http
-            .post('http://localhost:9090/survey', survey, { headers: headers })
+            .post(`${Configuration.API_ENDPOINT}/survey`, survey, { headers: headers })
             .map(this.extractData).catch(this.handleError);
     }
 
