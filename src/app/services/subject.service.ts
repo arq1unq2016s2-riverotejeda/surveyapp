@@ -25,8 +25,10 @@ export class SubjectService {
     }
 
     private extractData(res: Response) {
-        let body = res.json();
-        return body;
+      let body = res.json();
+      console.log(Configuration.API_ENDPOINT);
+
+      return body;
     }
 
     private handleError(error: Response) {
