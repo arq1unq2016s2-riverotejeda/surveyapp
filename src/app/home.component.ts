@@ -8,6 +8,7 @@ import {SubjectService} from './services/subject.service';
 import {SurveyService} from "./services/survey.service";
 import {Subject, SubjectStatusTranslator} from "./model/subject.ts";
 import {Survey, SelectedSubject} from "./model/survey.ts";
+import {Router} from "@angular/router";
 
 
 
@@ -28,7 +29,9 @@ export class HomeComponent implements OnInit{
 
     active = true;
 
-    constructor(private subjectService: SubjectService, private surveyService: SurveyService){}
+    constructor(private subjectService: SubjectService,
+                private surveyService: SurveyService,
+                private router: Router){}
 
     getSubjects() {
         this.subjectService.getSubjects()
@@ -65,6 +68,10 @@ export class HomeComponent implements OnInit{
             response => console.log(response),
             () => console.log('Survey successfully saved')
         );
+    }
+
+    goToThanksPage(){
+      this.router.navigate(['/message', {mes: 'Gracias por completar la encuesta'}] );
     }
 }
 
