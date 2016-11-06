@@ -68,6 +68,7 @@ export class HomeComponent implements OnInit{
             response => console.log(response),
             () => console.log('Survey successfully saved')
         );
+      this.goToThanksPage();
     }
 
     goToThanksPage(){
