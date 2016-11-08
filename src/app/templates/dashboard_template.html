@@ -3,3 +3,14 @@
   <!-- <a routerLink="/heroes" routerLinkActive="active">Heroes</a> -->
   <dashboards></dashboards>
 </nav>
+
+
+<h2>Dogs</h2>
+<p>List of dogs</p>
+<ul class="demo-list-icon mdl-list">
+  <li class="mdl-list__item" *ngFor="let subject of subjects">
+        <span class="mdl-list__item-primary-content">
+            <a [routerLink]="['/dogs']">{{subject.subject_name}}</a>
+        </span>
+  </li>
+</ul>
