@@ -9,11 +9,11 @@ import {ActivatedRoute} from "@angular/router";
 
 
 @Component({
-  selector: 'dashboards',
-  templateUrl: './templates/subjects_template.html'
+  selector: 'dashboard-elem',
+  templateUrl: 'templates/students_template.html'
 })
 
-export class SubjectsComponent {
+export class StudentsComponent {
 
   constructor(private route: ActivatedRoute){}
 

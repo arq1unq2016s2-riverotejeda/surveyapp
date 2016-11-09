@@ -9,7 +9,7 @@ import { HttpModule }                   from '@angular/http';
 import { MessageComponent } from './message.component';
 import { RouterModule } from "@angular/router";
 import {DashboardComponent} from "./dashboard.component";
-import {SubjectsComponent} from "./subjects.component";
+import {StudentsComponent} from "./students.component";
 
 
 @NgModule({
@@ -24,9 +24,9 @@ import {SubjectsComponent} from "./subjects.component";
                   RouterModule.forChild([
                     { path: 'message', component: MessageComponent },
                     { path: 'dashboard', component: DashboardComponent },
-                    { path: 'subjects', component: SubjectsComponent }
+                    { path: 'students', component: StudentsComponent}
                   ])],
-  declarations: [ AppComponent, HomeComponent, MessageComponent, DashboardComponent, SubjectsComponent ],
+  declarations: [ AppComponent, HomeComponent, MessageComponent, DashboardComponent, StudentsComponent],
   bootstrap:    [ AppComponent]
 //  exports:      [ Survey ]
 })
