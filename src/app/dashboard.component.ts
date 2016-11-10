@@ -13,7 +13,8 @@ import {SurveyService} from "./services/survey.service";
 @Component({
   selector: 'my-home',
   templateUrl: './templates/dashboard_template.html',
-  providers: [SubjectService, SurveyService]
+  providers: [SubjectService, SurveyService],
+  styleUrls: [ './templates/dashboard_template.css' ]
 })
 
 export class DashboardComponent implements OnInit{
