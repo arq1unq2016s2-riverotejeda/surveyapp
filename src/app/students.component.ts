@@ -5,7 +5,8 @@
 
 
 import { Component } from '@angular/core';
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {Student} from "./model/student";
 
 
 @Component({
@@ -15,6 +16,17 @@ import {ActivatedRoute} from "@angular/router";
 
 export class StudentsComponent {
 
-  constructor(private route: ActivatedRoute){}
+  public model = new Student("", "");
+  constructor(private route: ActivatedRoute, private router: Router){
 
+
+  }
+
+
+
+
+  goToThanksPage(){
+    this.router.navigate(['/message', {mes: 'Alumno guardado correctamente'}] );
+
+  }
 }
