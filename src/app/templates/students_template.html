@@ -2,15 +2,19 @@
 
 <h2>Agregar nuevo estudiante</h2>
 
-  <form>
+  <form *ngIf="active" (ngSubmit)="onSubmit()" #studentForm="ngForm">
     <div class="form-group">
-      <label for="nameInput">Nombre</label>
-      <input type="text" class="form-control" id="nameInput" aria-describedby="nameHelp" placeholder="Ingresar el nombre">
+      <label for="name">Nombre</label>
+      <input type="text" class="form-control" id="name"
+             required
+             [(ngModel)]="model.name" name="name"
+             #student_name="ngModel">
       <small id="nameHelp" class="form-text text-muted">Completar con tu nombre</small>
     </div>
     <div class="form-group">
-      <label for="legajoInput">Legajo</label>
-      <input type="text" class="form-control" id="legajoInput" placeholder="Legajo">
+      <label for="legajo">Legajo</label>
+      <input type="text" class="form-control" id="legajo"
+             [(ngModel)]="model.legajo" name="legajo" >
     </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
