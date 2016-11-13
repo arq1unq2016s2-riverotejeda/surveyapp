@@ -12,7 +12,7 @@ import {StudentService} from "./services/student.service";
 
 
 @Component({
-  selector: 'dashboard-elem',
+  selector: 'my-home',
   templateUrl: 'templates/students_template.html',
   providers: [StudentService]
 })

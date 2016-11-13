@@ -9,26 +9,31 @@ import { HttpModule }                   from '@angular/http';
 import { MessageComponent } from './message.component';
 import { RouterModule } from "@angular/router";
 import {DashboardComponent} from "./dashboard.component";
+import {appRoutingProviders, routing} from "./app.routes";
 import {StudentsComponent} from "./students.component";
+import {StudentStaticsComponent} from "./student_statics.component";
+import {OverviewComponent} from "./overview.component";
 
 
 @NgModule({
-  imports:      [ BrowserModule ,
-                  AlertModule,
-                  ReactiveFormsModule,
-                  FormsModule,
-                  HttpModule ,
-                  RouterModule.forRoot([
-                    { path: '', component: HomeComponent}
-                  ]),
-                  RouterModule.forChild([
-                    { path: 'message', component: MessageComponent },
-                    { path: 'dashboard', component: DashboardComponent },
-                    { path: 'students', component: StudentsComponent}
-                  ])],
-  declarations: [ AppComponent, HomeComponent, MessageComponent, DashboardComponent, StudentsComponent],
-  bootstrap:    [ AppComponent]
-//  exports:      [ Survey ]
+  imports: [ BrowserModule ,
+            AlertModule,
+            ReactiveFormsModule,
+            FormsModule,
+            HttpModule ,
+    routing],
+  declarations: [ AppComponent,
+    HomeComponent,
+    MessageComponent,
+    DashboardComponent,
+    StudentsComponent,
+    StudentStaticsComponent,
+    OverviewComponent],
+  bootstrap:    [ AppComponent ],
+  exports:      [ RouterModule ],
+  providers: [
+    appRoutingProviders
+  ],
 })
 export class AppModule { }
 

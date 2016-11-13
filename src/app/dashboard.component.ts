@@ -13,30 +13,12 @@ import {SurveyService} from "./services/survey.service";
 @Component({
   selector: 'my-home',
   templateUrl: './templates/dashboard_template.html',
-  providers: [SubjectService, SurveyService],
   styleUrls: [ './templates/dashboard_template.css' ]
 })
 
-export class DashboardComponent implements OnInit{
+export class DashboardComponent{
 
-  subjects: Subject[];
-  constructor(private subjectService: SubjectService) {
 
-  }
-
-  // Load data ones componet is ready
-  ngOnInit() {
-   this.getSubjects();
-  }
-
-  getSubjects() {
-    this.subjectService.getSubjects()
-      .subscribe(
-        res =>
-          this.subjects = res,
-        error => console.log("Error HTTP GET Service") // in case of failure show this message
-      );
-  }
 
 }
 
