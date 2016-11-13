@@ -3,11 +3,10 @@
  */
 
 import { Injectable } from '@angular/core';
+import {environment} from "../environments/environment";
 
 @Injectable()
 export class Configuration {
-    public Server: string = "http://localhost:9090";
-    public ApiUrl: string = "/";
-    public ServerWithApiUrl = this.Server + this.ApiUrl;
-    public static get API_ENDPOINT(): string { return 'https://haunted-shadow-58741.herokuapp.com'; }
+    public static SERVER: string = environment.surveyBackendHost;
+    public static API_ENDPOINT: string = Configuration.SERVER;
 }

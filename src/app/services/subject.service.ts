@@ -25,8 +25,8 @@ export class SubjectService {
     }
 
     private extractData(res: Response) {
-        let body = res.json();
-        return body;
+      let body = res.json();
+      return body;
     }
 
     private handleError(error: Response) {

@@ -20,18 +20,20 @@ import {Router} from "@angular/router";
 
 export class HomeComponent implements OnInit{
     public mySubjects: Subject[];
+    public model = HomeComponent.getEmptyDefaultSurvey();
+    public active = true;
 
-    ngOnInit(): void {
-        this.getSubjects();
+    private static getEmptyDefaultSurvey() {
+      return new Survey("", "", []);
     }
-
-    public model = new Survey("", "", []);
-
-    active = true;
 
     constructor(private subjectService: SubjectService,
                 private surveyService: SurveyService,
                 private router: Router){}
+
+    ngOnInit(): void {
+          this.getSubjects();
+    }
 
     getSubjects() {
         this.subjectService.getSubjects()
@@ -51,9 +53,18 @@ export class HomeComponent implements OnInit{
 
     addSubject(subjectName:string, event){
         var option = (<HTMLSelectElement>event.srcElement).value;
-        var selectedSubject = new SelectedSubject(subjectName, option);
-        //TODO: check if already exist
-        this.model.selected_subjects.push(selectedSubject);
+        //check if already exist
+        var existentSubject = this.model.selected_subjects.filter(subject => subject.subject == subjectName);
+
+        if(existentSubject.length>=1){
+             this.model.selected_subjects.map(subject => {
+               if (subject.subject == subjectName){
+                 subject.status = option
+               }
+             });
+          }else{
+            this.model.selected_subjects.push(new SelectedSubject(subjectName, option));
+          }
     }
 
     onSubmit() {
@@ -65,8 +76,8 @@ export class HomeComponent implements OnInit{
         });
 
         this.surveyService.saveSurvey(this.model).subscribe(
-            response => console.log(response),
-            () => console.log('Survey successfully saved')
+            response => console.log('Survey successfully saved'), // redirect to thanks page
+            error => console.log(error)// redirect to error page
         );
       this.goToThanksPage();
     }
