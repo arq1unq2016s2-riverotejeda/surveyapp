@@ -10,6 +10,7 @@ import {OverviewComponent} from "./overview.component";
 export const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'message', component: MessageComponent },
+  { path: 'hola', component: DashboardComponent},
   { path: 'dashboard', component: DashboardComponent,
     children: [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
