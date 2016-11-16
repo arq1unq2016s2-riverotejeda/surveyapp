@@ -1,4 +1,4 @@
 export const environment = {
-  production: true,
+  production: false,
   surveyBackendHost: 'https://survey-backoffice.herokuapp.com'
 };
