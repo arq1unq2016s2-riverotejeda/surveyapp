@@ -33,7 +33,7 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
   bootstrap:    [ AppComponent ],
   exports:      [ RouterModule ],
   providers: [
-
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     appRoutingProviders
   ],
 })
