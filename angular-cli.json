@@ -18,6 +18,7 @@
       "prefix": "app",
       "mobile": false,
       "styles": [
+        "survey.css",
         "styles.css",
         "../node_modules/bootstrap/dist/css/bootstrap.min.css"
       ],
@@ -43,10 +44,10 @@
   },
   "defaults": {
     "styleExt": "css",
-    "prefixInterfaces": false,
+    "prefixInterfaces": true,
     "inline": {
-      "style": false,
-      "template": false
+      "style": true,
+      "template": true
     },
     "spec": {
       "class": false,
