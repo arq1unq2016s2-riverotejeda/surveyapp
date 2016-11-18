@@ -11,26 +11,30 @@ import {Observable} from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map'
 import {Subject} from "../model/subject";
-
+import Any = jasmine.Any;
 
 
 @Injectable()
 export class SubjectService {
 
-    constructor(private _http:Http) {}
+  constructor(private _http: Http) {
+  }
 
-    public getSubjects (): Observable<Subject[]> {
-        return this._http.get(`${Configuration.API_ENDPOINT}/subjects`).
-        map(this.extractData).catch(this.handleError);
-    }
+  public getSubjects(): Observable<Subject[]> {
+    return this._http.get(`${Configuration.API_ENDPOINT}/subjects`).map(this.extractData).catch(this.handleError);
+  }
 
-    private extractData(res: Response) {
-      let body = res.json();
-      return body;
-    }
+  public getSubjectsStatistics(): Observable<Any[]> {
+    return this._http.get(`${Configuration.API_ENDPOINT}/subjectsOccupation`).map(this.extractData).catch(this.handleError);
+  }
 
-    private handleError(error: Response) {
-        console.error(error);
-        return Observable.throw(error.json().error || 'Server error');
-    }
+  private extractData(res: Response) {
+    let body = res.json();
+    return body;
+  }
+
+  private handleError(error: Response) {
+    console.error(error);
+    return Observable.throw(error.json().error || 'Server error');
+  }
 }

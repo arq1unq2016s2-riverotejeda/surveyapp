@@ -9,3 +9,10 @@
 .back-page{
   color: #C0C0C0;
 }
+
+
+.jumbotron p {
+  margin-bottom: 15px;
+  font-size: 15px;
+  font-weight: 200;
+}
