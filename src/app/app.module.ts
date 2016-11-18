@@ -13,6 +13,7 @@ import {appRoutingProviders, routing} from "./app.routes";
 import {StudentsComponent} from "./students.component";
 import {StudentStaticsComponent} from "./student_statics.component";
 import {OverviewComponent} from "./overview.component";
+import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 
 
 @NgModule({
@@ -32,6 +33,7 @@ import {OverviewComponent} from "./overview.component";
   bootstrap:    [ AppComponent ],
   exports:      [ RouterModule ],
   providers: [
+    {provide: LocationStrategy, useClass: HashLocationStrategy},
     appRoutingProviders
   ],
 })
