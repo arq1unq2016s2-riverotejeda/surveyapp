@@ -14,6 +14,7 @@ import {StudentsComponent} from "./students.component";
 import {StudentStaticsComponent} from "./student_statics.component";
 import {OverviewComponent} from "./overview.component";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
+import {StudentCompletenessComponent} from "./student_completeness.component";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {HashLocationStrategy, LocationStrategy} from "@angular/common";
     DashboardComponent,
     StudentsComponent,
     StudentStaticsComponent,
-    OverviewComponent],
+    OverviewComponent,
+    StudentCompletenessComponent],
   bootstrap:    [ AppComponent ],
   exports:      [ RouterModule ],
   providers: [

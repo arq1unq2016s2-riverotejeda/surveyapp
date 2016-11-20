@@ -1,12 +1,11 @@
 <div class="custom-container">
   <h2>Porcentaje de Inscripciones</h2>
     <li *ngFor="let subject of subjectsStatistics">
-      <label>{{ subject.subject }}</label>
-      <label>{{ subject.comision}}</label>
+      <strong>{{ subject.subject }}</strong>
+      <p>Comisión: {{ subject.comision}}</p>
+      <p>Inscriptos: {{ subject.occupation}}</p>
+      <p>Porcentaje de ocupación: {{ subject.percentage}}%</p>
       <br>
-      <label>Inscriptos: {{ subject.occupation}}</label>
-      <br>
-      <label>Porcentaje de ocupación: {{ subject.percentage}}%</label>
     </li>
 </div>
 <router-outlet></router-outlet>

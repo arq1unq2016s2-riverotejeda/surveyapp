@@ -3,12 +3,7 @@
  */
 
 
-import {Component, OnInit} from '@angular/core';
-import {Subject} from "./model/subject";
-import {Observable} from "rxjs";
-import {SubjectService} from "./services/subject.service";
-import {SurveyService} from "./services/survey.service";
-
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'my-home',
@@ -16,9 +11,5 @@ import {SurveyService} from "./services/survey.service";
   styleUrls: [ './templates/dashboard_template.css' ]
 })
 
-export class DashboardComponent{
-
-
-
-}
+export class DashboardComponent{}
 

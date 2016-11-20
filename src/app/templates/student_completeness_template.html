@@ -1,0 +1,16 @@
+<div class="custom-container">
+  <h2>Porcentaje de encuestas completas</h2>
+  <div *ngIf="subjectsCompleteness">
+
+    <blockquote>
+      <small><strong>Cantidad de alumnos:</strong> {{subjectsCompleteness.cant_students}}</small>
+
+      <small><strong>Cantidad de encuestas:</strong> {{subjectsCompleteness.cant_surveys}}</small>
+
+      <small><strong>Porcentage de encuestas realizadas:</strong> {{subjectsCompleteness.percentage}}</small>
+
+    </blockquote>
+
+  </div>
+</div>
+<router-outlet></router-outlet>

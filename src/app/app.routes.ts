@@ -5,6 +5,7 @@ import {DashboardComponent} from "./dashboard.component";
 import {StudentsComponent} from "./students.component";
 import {StudentStaticsComponent} from "./student_statics.component";
 import {OverviewComponent} from "./overview.component";
+import {StudentCompletenessComponent} from "./student_completeness.component";
 
 
 export const routes: Routes = [
@@ -16,7 +17,7 @@ export const routes: Routes = [
       { path: 'overview', component: OverviewComponent},
       { path: 'students', component: StudentsComponent },
       { path: 'student-statics', component: StudentStaticsComponent },
-      { path: 'survey-statics', component: StudentStaticsComponent} //cambiar por el componente de encuestas
+      { path: 'survey-statics', component: StudentCompletenessComponent}
     ]
   }
 ];
