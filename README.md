@@ -15,6 +15,11 @@ La curva de aprendizaje fue interminable.
 
 Entre las cosas buenas que encontramos, la versión 2 del framework incorpora el pseudolenguaje TypeScript. Un lenguaje tipado que compila directo a JavaScript. Esto permitió trabajar de una manera más similar a como se trabaja generalmente en los backends, así como plasmar mejor las ideas. Como es un lenguaje compilado, facilita la detección temprana de errores. 
 
+###Estructura interna
+Siguiendo la arquitectura de Angular2, desarrollamos cada página del front con un componente que pudiera ser reutilizado en un futuro. 
+
+Para la vista del Director desarrollamos un DashBoard haciendo uso de los selectors de Angular2.
+
 ###Conexión con el backend
 Para conectar al backend usamos el módulo de http que trae incluido Angular. (La API disponible puede ser consultada en: https://github.com/arq1unq2016s2-riverotejeda/student-survey-backoffice).
 
