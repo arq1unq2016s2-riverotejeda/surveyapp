@@ -1,31 +1,14 @@
-# Survey
+#SurveyApp - Frontend
 
-This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.19-3.
+Este es el frontend de nuestra aplicación para cargar encuestas de preinscripción.
+El mismo está desarrollado en Angular2. 
 
-## Development server
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+##La elección
+La disputa fue entre Angular y el front que trae por defecto el framework de desarrollo en PHP Symfony2. Decidimos utilizar Angular ya que creemos que JavaScript 
+Si bien habíamos trabajado con Angular anteriormente, quisimos darle una oportunidad al nuevo Angular2. Simplemente para aprender una nueva herramienta. 
+La sorpresa fue no buena, por no decir mala. Nos resultó prácticamente todo muy costoso. Poca info en internet, incluso la documentación oficial es bastante intrincada y difícil de leer (al menos lo fue para nosotras).
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class`.
 
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
-
-## Deploying to Github Pages
-
-Run `ng github-pages:deploy` to deploy to Github Pages.
-
-## Further help
-
-To get more help on the `angular-cli` use `ng --help` or go check out the [Angular-CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+##Deploy
+La aplicación está disponible para chequear en https://studentsurveyapp.herokuapp.com/.
