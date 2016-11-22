@@ -21,7 +21,7 @@ export class StaticsService {
   }
 
   public getSurveyCompletition(): Observable<number>{
-    return this._http.get(`${Configuration.API_ENDPOINT}/surveyscompletition`).map(this.extractData).catch(this.handleError);
+    return this._http.get(`${Configuration.API_ENDPOINT}/surveysCompletition`).map(this.extractData).catch(this.handleError);
   }
 
   public getSubjectsStatistics(): Observable<Any[]> {
