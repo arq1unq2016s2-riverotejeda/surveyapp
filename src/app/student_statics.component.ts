@@ -13,6 +13,7 @@ export class StudentStaticsComponent implements OnInit{
   subjectsStatistics: Any[];
   constructor(private staticsService: StaticsService,
               private router: Router){
+    status ="success";
   }
 
   ngOnInit() :void{
