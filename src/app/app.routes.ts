@@ -6,10 +6,12 @@ import {StudentsComponent} from "./students.component";
 import {StudentStaticsComponent} from "./student_statics.component";
 import {OverviewComponent} from "./overview.component";
 import {StudentCompletenessComponent} from "./student_completeness.component";
+import {WelcomeComponent} from "./welcome.component";
 
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: '', component: WelcomeComponent },
+  { path: 'survey/:token', component: HomeComponent },
   { path: 'message', component: MessageComponent },
   { path: 'dashboard', component: DashboardComponent,
     children: [

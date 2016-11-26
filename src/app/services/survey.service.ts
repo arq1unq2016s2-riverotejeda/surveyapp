@@ -26,9 +26,7 @@ export class SurveyService {
     }
 
     private extractData(res: Response) {
-        console.log(res);
-        let body = res.json();
-        return body;
+        return res.json();
     }
 
     private handleError(error: Response) {

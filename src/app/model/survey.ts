@@ -2,6 +2,7 @@ export class Survey {
     constructor(
     public student_name: string,
     public legajo: string,
+    public token: string,
     public selected_subjects: SelectedSubject[]) {  }
 }
 

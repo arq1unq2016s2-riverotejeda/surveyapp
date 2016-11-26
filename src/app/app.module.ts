@@ -15,6 +15,7 @@ import {StudentStaticsComponent} from "./student_statics.component";
 import {OverviewComponent} from "./overview.component";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {StudentCompletenessComponent} from "./student_completeness.component";
+import {WelcomeComponent} from "./welcome.component";
 
 
 @NgModule({
@@ -25,6 +26,7 @@ import {StudentCompletenessComponent} from "./student_completeness.component";
             HttpModule ,
     routing],
   declarations: [ AppComponent,
+    WelcomeComponent,
     HomeComponent,
     MessageComponent,
     DashboardComponent,

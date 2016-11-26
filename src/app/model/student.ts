@@ -4,6 +4,7 @@
 export class Student {
   constructor(
     public name: string,
-    public legajo: string) {  }
+    public legajo: string,
+    public email: string){  }
 }
 

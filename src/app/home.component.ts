@@ -8,7 +8,7 @@ import {SubjectService} from './services/subject.service';
 import {SurveyService} from "./services/survey.service";
 import {Subject, SubjectStatusTranslator} from "./model/subject.ts";
 import {Survey, SelectedSubject} from "./model/survey.ts";
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 
 
 
@@ -20,32 +20,34 @@ import {Router} from "@angular/router";
 
 export class HomeComponent implements OnInit{
     public mySubjects: Subject[];
-    public model = HomeComponent.getEmptyDefaultSurvey();
-    public active = true;
-
-    private static getEmptyDefaultSurvey() {
-      return new Survey("", "", []);
-    }
+    public model;
+    private token;
 
     constructor(private subjectService: SubjectService,
                 private surveyService: SurveyService,
-                private router: Router){}
+                private router: Router,
+                private route: ActivatedRoute ){}
 
-    ngOnInit(): void {
-          this.getSubjects();
+    ngOnInit() {
+      this.route.params.subscribe(params => {
+        this.token = params['token'];
+
+      });
+      this.getSubjects();
     }
 
     getSubjects() {
-        this.subjectService.getSubjects()
+        this.subjectService.getSubjects(this.token)
             .subscribe(
                 res => {
-                    res.map(survey => {
+                    res.options.map(survey => {
                         for (let option of survey.options){
                             var option_translated = SubjectStatusTranslator.subjectStatusMessage[option];
                             survey.general_options.push(option_translated);
                         }
                     });
-                    this.mySubjects = res;
+                    this.mySubjects = res.options;
+                    this.model=new Survey(res.student_name, res.legajo,this.token, []);
                 },
                 error => console.log("Error HTTP GET Service") // in case of failure show this message
             );
@@ -76,9 +78,14 @@ export class HomeComponent implements OnInit{
         });
 
         this.surveyService.saveSurvey(this.model).subscribe(
-            response => console.log('Survey successfully saved'), // redirect to thanks page
-            error => console.log(error)// redirect to error page
-        );
+            response => {
+              console.log('Survey successfully saved')
+            },
+            error =>{
+              console.log(error);
+              this.router.navigate(['/message', {mes: 'Hubo un error al guardar la encuesta'}] )
+            }
+    );
       this.goToThanksPage();
     }
 
