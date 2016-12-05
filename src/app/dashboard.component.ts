@@ -4,6 +4,7 @@
 
 
 import {Component} from '@angular/core';
+import {Auth} from "./services/auth.service";
 
 @Component({
   selector: 'my-home',
@@ -11,5 +12,7 @@ import {Component} from '@angular/core';
   styleUrls: [ './templates/dashboard_template.css' ]
 })
 
-export class DashboardComponent{}
+export class DashboardComponent{
+  constructor(private auth: Auth) {}
+}
 

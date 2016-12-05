@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  surveyBackendHost: 'http://localhost:9090'
+  surveyBackendHost: 'http://localhost:9090',
+  surveyAppHostCallback: 'http://localhost:3000/#/dashboard/overview'
 };

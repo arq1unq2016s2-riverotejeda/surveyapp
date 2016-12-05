@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Auth} from "./services/auth.service";
 
 @Component({
   selector: 'my-home',
@@ -11,5 +12,7 @@ import { Component } from '@angular/core';
     <router-outlet></router-outlet>  
 `
 })
+
 export class WelcomeComponent {
+  constructor(private auth: Auth) {}
 }
