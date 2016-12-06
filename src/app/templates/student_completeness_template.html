@@ -1,16 +1,44 @@
-<div class="custom-container">
+<div class="custom-container-n">
   <h2>Porcentaje de encuestas completas</h2>
   <div *ngIf="subjectsCompleteness">
 
-    <blockquote>
-      <small><strong>Cantidad de alumnos:</strong> {{subjectsCompleteness.cant_students}}</small>
+    <div class="x_content">
+      <div class="row">
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="tile-stats">
+            <div class="icon"><i class="fa fa-check-square-o"></i>
+            </div>
+            <div class="count">{{subjectsCompleteness.cant_students}}</div>
 
-      <small><strong>Cantidad de encuestas:</strong> {{subjectsCompleteness.cant_surveys}}</small>
+            <h3>Alumnos</h3>
+            <p>Cantidad de alumnos inscriptos.</p>
+          </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="tile-stats">
+            <div class="icon"><i class="fa fa-check-square-o"></i>
+            </div>
+            <div class="count">{{subjectsCompleteness.cant_surveys}}</div>
 
-      <small><strong>Porcentaje de encuestas realizadas:</strong> {{subjectsCompleteness.percentage}}</small>
+            <h3>Encuestas</h3>
+            <p>Cantidad de encuestas realizadas.</p>
+          </div>
+        </div>
+        <div class="animated flipInY col-lg-3 col-md-3 col-sm-6 col-xs-12">
+          <div class="tile-stats">
+            <div class="icon"><i class="fa fa-comments-o"></i>
+            </div>
+            <div class="count">{{subjectsCompleteness.percentage}}%</div>
 
-    </blockquote>
+            <h3>% Encuestas</h3>
+            <p>Porcentaje de encuestas realizadas.</p>
+          </div>
+        </div>
+      </div>
+    </div>
 
   </div>
 </div>
+
+
 <router-outlet></router-outlet>

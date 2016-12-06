@@ -4,6 +4,10 @@
   margin-left: 300px;
 }
 
+.custom-container-n{
+  margin-left: 300px;
+}
+
 .ng-valid[required], .ng-valid.required  {
   border-left: 5px solid #42A948; /* green */
 }
