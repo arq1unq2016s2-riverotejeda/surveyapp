@@ -1,2 +1,15 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">SurveyApp</a>
+      <button class="btn btn-default" style="margin-left: 1010px; margin-top: 10px;"
+              [routerLink]="['login']" *ngIf="!auth.authenticated()">Director</button>
+      <button class="btn btn-default" style="margin-left: 1010px; margin-top: 10px;"
+              (click)="auth.logout()" *ngIf="auth.authenticated()">Salir</button>
+    </div>
+  </div>
+</nav>
 
-<router-outlet></router-outlet>
+<main class="container">
+  <router-outlet></router-outlet>
+</main>

@@ -1,3 +1,10 @@
+
+export class SurveyModel {
+  student_name: string;
+  legajo: string;
+  options: Subject[]
+}
+
 export class Subject {
     subject_name: string;
     date: string[];

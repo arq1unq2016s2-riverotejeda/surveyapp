@@ -19,7 +19,7 @@ import {StudentService} from "./services/student.service";
 
 export class StudentsComponent {
 
-  public model = new Student("", "");
+  public model = new Student("", "", "");
   active = true;
   constructor(private route: ActivatedRoute,
               private router: Router,

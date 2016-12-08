@@ -7,7 +7,7 @@
   </div>
   <div>
     <div>
-      <form *ngIf="active" (ngSubmit)="onSubmit()" #surveyForm="ngForm">
+      <form *ngIf="model" (ngSubmit)="onSubmit()" #surveyForm="ngForm">
         <div class="form-group">
           <label for="student_name">Nombre</label>
           <input type="text" class="form-control" id="student_name"

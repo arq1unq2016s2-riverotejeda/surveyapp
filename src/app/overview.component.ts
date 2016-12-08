@@ -11,5 +11,6 @@ import { Component } from '@angular/core';
     <router-outlet></router-outlet>  
 `
 })
-export class OverviewComponent {
+
+export class OverviewComponent{
 }

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import Any = jasmine.Any;
-import {Completeness, SurveyData} from "./model/completeness";
+import {Completeness} from "./model/completeness";
 import {StaticsService} from "./services/statics.service";
 
 @Component({

@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  surveyBackendHost: 'https://survey-backoffice.herokuapp.com'
+  surveyBackendHost: 'https://survey-backoffice.herokuapp.com',
+  surveyAppHostCallback: 'http://localhost:3000/#/dashboard/overview'
 };

@@ -12,9 +12,13 @@ import {DashboardComponent} from "./dashboard.component";
 import {appRoutingProviders, routing} from "./app.routes";
 import {StudentsComponent} from "./students.component";
 import {StudentStaticsComponent} from "./student_statics.component";
-import {OverviewComponent} from "./overview.component";
 import {HashLocationStrategy, LocationStrategy} from "@angular/common";
 import {StudentCompletenessComponent} from "./student_completeness.component";
+import {WelcomeComponent} from "./welcome.component";
+import { AUTH_PROVIDERS }      from 'angular2-jwt';
+import {AuthComponent} from "./auth.component";
+import {OverviewComponent} from "./overview.component";
+import {AuthGuard} from "./security/auth.guard";
 
 
 @NgModule({
@@ -25,18 +29,22 @@ import {StudentCompletenessComponent} from "./student_completeness.component";
             HttpModule ,
     routing],
   declarations: [ AppComponent,
+    WelcomeComponent,
     HomeComponent,
     MessageComponent,
     DashboardComponent,
     StudentsComponent,
     StudentStaticsComponent,
     OverviewComponent,
+    AuthComponent,
     StudentCompletenessComponent],
   bootstrap:    [ AppComponent ],
   exports:      [ RouterModule ],
   providers: [
     {provide: LocationStrategy, useClass: HashLocationStrategy},
-    appRoutingProviders
+    appRoutingProviders,
+    AUTH_PROVIDERS,
+    AuthGuard
   ],
 })
 export class AppModule { }
