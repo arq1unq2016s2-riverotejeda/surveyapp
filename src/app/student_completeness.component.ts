@@ -7,6 +7,9 @@ import {StaticsService} from "./services/statics.service";
 @Component({
   selector: 'my-home',
   templateUrl: './templates/student_completeness_template.html',
+  styleUrls: [ './templates/font-awesome.min.css', './templates/custom.min.css'],
+
+
   providers: [StaticsService]
 })
 export class StudentCompletenessComponent implements OnInit{
