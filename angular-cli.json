@@ -19,8 +19,7 @@
       "mobile": false,
       "styles": [
         "styles.css",
-        "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "/static/vendors/font-awesome/css/font-awesome.min.css"
+        "../src/static/vendors/font-awesome/css/font-awesome.min.css"
       ],
       "scripts": [],
       "environments": {
