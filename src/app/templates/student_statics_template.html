@@ -1,11 +1,21 @@
 <div class="custom-container">
-  <h2>Porcentaje de Inscripciones</h2>
-    <li *ngFor="let subject of subjectsStatistics">
-      <strong>{{ subject.subject }}</strong>
-      <p>Comisión: {{ subject.comision}}</p>
-      <p>Inscriptos: {{ subject.occupation}}</p>
-      <p>Porcentaje de ocupación: {{ subject.percentage}}%</p>
-      <br>
-    </li>
+<h2>Porcentaje de ocupación de materias por comisión</h2>
+<table class="table table-bordered">
+  <tr>
+    <td>Materia</td>
+    <td>Comisión</td>
+    <td>Inscriptos</td>
+    <td>Porcentaje de ocupación</td>
+  </tr>
+    <tr *ngFor="let subject of subjectsStatistics" class="{{subject.status}}">
+      <td>{{subject.subject}}</td>
+      <td>{{subject.comision}}</td>
+      <td>{{ subject.occupation}}</td>
+      <td>{{ subject.percentage}}%</td>
+    </tr>
+
+</table>
 </div>
 <router-outlet></router-outlet>
+
+
