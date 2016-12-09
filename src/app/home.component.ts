@@ -15,7 +15,8 @@ import {Router, ActivatedRoute} from "@angular/router";
 @Component({
   selector: 'my-home',
   templateUrl: './templates/home_template.html',
-  providers: [SubjectService, SurveyService]
+  providers: [SubjectService, SurveyService],
+  styleUrls: [ './templates/home.css' ]
 })
 
 export class HomeComponent implements OnInit{
