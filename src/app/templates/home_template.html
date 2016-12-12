@@ -36,13 +36,15 @@
           <div *ngFor="let group of groupedSubjects">
             <div class="panel panel-primary">
               <div class="panel-heading">{{ group.clave}}</div>
-              <div *ngFor="let subject of group.valor">
-                <label>{{ subject.subject_name }}</label>
-                <select class="form-control" id="subject_name" required
-                        (change)="addSubject(subject.subject_name, $event)">
-                  <option selected disabled></option> <!-- ver si hay una mejor manera de generar un default vacio-->
-                  <option *ngFor="let p of subject.general_options" [value]="p">{{p}}</option>
-                </select>
+              <div class="panel-body">
+                <div *ngFor="let subject of group.valor">
+                  <label>{{ subject.subject_name }}</label>
+                  <select class="form-control" id="subject_name" required
+                          (change)="addSubject(subject.subject_name, $event)">
+                    <option selected disabled></option> <!-- ver si hay una mejor manera de generar un default vacio-->
+                    <option *ngFor="let p of subject.general_options" [value]="p">{{p}}</option>
+                  </select>
+                </div>
               </div>
             </div>
           </div>
