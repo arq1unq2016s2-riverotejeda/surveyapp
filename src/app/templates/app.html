@@ -1,15 +1,34 @@
 <nav class="navbar navbar-default">
   <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
       <a class="navbar-brand" href="#">SurveyApp</a>
-      <a class="navbar-link" [routerLink]="['dashboard']" *ngIf="auth.authenticated()">Dashboard</a>
-      <button class="btn btn-default" style="margin-left: 1010px; margin-top: 10px;"
-              [routerLink]="['login']" *ngIf="!auth.authenticated()">Login</button>
-      <button class="btn btn-default" style="margin-left: 1010px; margin-top: 10px;"
-              (click)="auth.logout()" *ngIf="auth.authenticated()">Salir</button>
     </div>
-  </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li> <a class="navbar-link" [routerLink]="['dashboard']" *ngIf="auth.authenticated()">Dashboard</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <button class="btn btn-default" style="margin-left: 1010px; margin-top: 10px;"
+                [routerLink]="['login']" *ngIf="!auth.authenticated()">Login</button>
+
+        <button class="btn btn-default" style="margin-left: 1010px; margin-top: 10px;"
+                (click)="auth.logout()" *ngIf="auth.authenticated()">Salir</button>
+
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
+
 
 <main class="container">
   <router-outlet></router-outlet>
