@@ -1,8 +1,10 @@
+import {Survey} from "./survey";
 
 export class SurveyModel {
   student_name: string;
   legajo: string;
-  options: Subject[]
+  options: Subject[];
+  completedSurvey: Survey
 }
 
 export class Subject {

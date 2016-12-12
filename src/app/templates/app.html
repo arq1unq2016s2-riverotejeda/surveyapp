@@ -2,7 +2,6 @@
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">SurveyApp</a>
-      <a class="navbar-link" [routerLink]="['dashboard']" *ngIf="auth.authenticated()">Dashboard</a>
       <button class="btn btn-default" style="margin-left: 1010px; margin-top: 10px;"
               [routerLink]="['login']" *ngIf="!auth.authenticated()">Login</button>
       <button class="btn btn-default" style="margin-left: 1010px; margin-top: 10px;"

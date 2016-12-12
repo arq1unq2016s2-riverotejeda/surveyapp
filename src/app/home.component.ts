@@ -48,7 +48,11 @@ export class HomeComponent implements OnInit{
                         }
                     });
                     this.mySubjects = res.options;
-                    this.model=new Survey(res.student_name, res.legajo,this.token, []);
+                    if(res.completedSurvey==null){
+                      this.model=new Survey(res.student_name, res.legajo,this.token, []);
+                    }else{
+                      this.model=new Survey(res.student_name, res.legajo,this.token, res.completedSurvey.selected_subjects);
+                    }
                 },
                 error => console.log("Error HTTP GET Service") // in case of failure show this message
             );
