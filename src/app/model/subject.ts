@@ -4,7 +4,7 @@ export class SurveyModel {
   student_name: string;
   legajo: string;
   options: Subject[];
-  completedSurvey: Survey
+  completed_survey: Survey
 }
 
 export class Subject {
@@ -39,6 +39,22 @@ export class SubjectStatusTranslator{
         if(message == SubjectStatusTranslator.NOT_YET){
             return "not_yet";
         }
+        else return message;
+    }
+
+    public static getStatusMessage(message:string):string{
+      if(message == "approved"){
+        return SubjectStatusTranslator.APPROVED;
+      }
+
+      if(message == "bad_schedule"){
+        return SubjectStatusTranslator.BAD_SCHEDULE;
+      }
+
+      if(message == "not_yet"){
+        return SubjectStatusTranslator.NOT_YET;
+      }
+      else return message;
     }
 
 }

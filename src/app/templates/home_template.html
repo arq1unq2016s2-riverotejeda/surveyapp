@@ -42,7 +42,7 @@
                   <select class="form-control" id="subject_name" required
                           (change)="addSubject(subject.subject_name, $event)">
                     <option selected disabled></option> <!-- ver si hay una mejor manera de generar un default vacio-->
-                    <option *ngFor="let p of subject.general_options" [value]="p">{{p}}</option>
+                    <option *ngFor="let p of subject.general_options" [value]="p" [selected]="isSelected(subject, p)">{{p}}</option>
                   </select>
                 </div>
               </div>
