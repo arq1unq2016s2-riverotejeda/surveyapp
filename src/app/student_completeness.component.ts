@@ -29,17 +29,10 @@ export class StudentCompletenessComponent implements OnInit{
     this.staticsService.getSurveyCompletition()
       .subscribe(
         completition => {
-          this.staticsService.getSurveyData()
-            .subscribe(
-              data => {
-                this.subjectsCompleteness= new Completeness(data.cant_students,
-                  data.cant_surveys, completition);
-
+                this.subjectsCompleteness= completition;
                 },
               error => console.log("Error HTTP GET Service") // in case of failure show this message
             );
-        },
-        error => console.log("Error HTTP GET Service") // in case of failure show this message
-      );
+
   }
 }

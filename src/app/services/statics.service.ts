@@ -7,7 +7,7 @@ import {Observable} from 'rxjs/Observable';
 
 import 'rxjs/add/operator/map'
 import Any = jasmine.Any;
-import {SurveyData} from "../model/completeness";
+import {SurveyData, Completeness} from "../model/completeness";
 import {SubjectStatistic} from "../model/subject_statistic";
 
 
@@ -21,7 +21,7 @@ export class StaticsService {
     return this._http.get(`${Configuration.API_ENDPOINT}/surveysData`).map(this.extractData).catch(this.handleError);
   }
 
-  public getSurveyCompletition(): Observable<number>{
+  public getSurveyCompletition(): Observable<Completeness>{
     return this._http.get(`${Configuration.API_ENDPOINT}/surveysCompletition`).map(this.extractData).catch(this.handleError);
   }
 
