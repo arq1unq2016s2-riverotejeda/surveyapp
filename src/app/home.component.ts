@@ -70,9 +70,6 @@ export class HomeComponent implements OnInit{
         for(var index in this.model.selected_subjects){
           if(this.model.selected_subjects[index].subject == subject.subject_name){
             var option_translated = SubjectStatusTranslator.getStatusMessage(this.model.selected_subjects[index].status);
-            console.log('status: '+ this.model.selected_subjects[index].status)
-            console.log('trans    '+option_translated);
-            console.log('current  '+option);
             if (option_translated == option){
               return true;
             }
