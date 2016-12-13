@@ -25,17 +25,41 @@
                  [(ngModel)]="model.legajo" name="legajo" >
         </div>
         <div class="form-group">
-          <label for="subject_name">Materias</label>
+          <label for="subject_name"><h4>Materias</h4></label>
 
-          <li *ngFor="let subject of mySubjects">
-            <label>{{ subject.subject_name }}</label>
-            <select class="form-control" id="subject_name" required
-                    (change)="addSubject(subject.subject_name, $event)">
-              <option selected disabled></option> <!-- ver si hay una mejor manera de generar un default vacio-->
-              <option *ngFor="let p of subject.general_options" [value]="p">{{p}}</option>
-            </select>
-          </li>
+
+
+
+
+
+
+          <div *ngFor="let group of groupedSubjects">
+            <div class="panel panel-primary">
+              <div class="panel-heading">{{ group.clave}}</div>
+              <div class="panel-body">
+                <div *ngFor="let subject of group.valor">
+                  <label>{{ subject.subject_name }}</label>
+                  <select class="form-control" id="subject_name" required
+                          (change)="addSubject(subject.subject_name, $event)">
+                    <option selected disabled></option> <!-- ver si hay una mejor manera de generar un default vacio-->
+                    <option *ngFor="let p of subject.general_options" [value]="p">{{p}}</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
         </div>
+
+
+
+
+
+
+
+
+
         <button  type="submit" class="btn btn-default" [disabled]="!surveyForm.form.valid">Submit</button>
       </form>
     </div>

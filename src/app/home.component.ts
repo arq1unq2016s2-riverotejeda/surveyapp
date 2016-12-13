@@ -21,6 +21,7 @@ import {Router, ActivatedRoute} from "@angular/router";
 
 export class HomeComponent implements OnInit{
     public mySubjects: Subject[];
+    public groupedSubjects: any;
     public model;
     private token;
 
@@ -47,8 +48,12 @@ export class HomeComponent implements OnInit{
                             survey.general_options.push(option_translated);
                         }
                     });
-                    this.mySubjects = res.options;
-                    if(res.completedSurvey==null){
+
+                  this.mySubjects = res.options;
+                  this.groupSubjects();
+
+                  // este atributo nuevo es para saber si el alumno ya tiene una encuesta completada
+                  if(res.completedSurvey==null){
                       this.model=new Survey(res.student_name, res.legajo,this.token, []);
                     }else{
                       this.model=new Survey(res.student_name, res.legajo,this.token, res.completedSurvey.selected_subjects);
@@ -56,6 +61,27 @@ export class HomeComponent implements OnInit{
                 },
                 error => console.log("Error HTTP GET Service") // in case of failure show this message
             );
+    }
+
+
+    groupSubjects(){
+
+      var groupedSubjects2 = [];
+      for(var index in this.mySubjects){
+        var currentSubject = this.mySubjects[index];
+        groupedSubjects2[currentSubject.group] = [];
+      }
+
+      for(var index in this.mySubjects){
+        var currentSubject = this.mySubjects[index];
+        groupedSubjects2[currentSubject.group].push(currentSubject);
+      }
+
+
+      this.groupedSubjects = [];
+      for(var index in groupedSubjects2){
+        this.groupedSubjects.push({clave : index, valor :groupedSubjects2[index]});
+      }
     }
 
     addSubject(subjectName:string, event){

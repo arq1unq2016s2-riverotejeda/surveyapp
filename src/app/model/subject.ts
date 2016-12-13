@@ -11,7 +11,8 @@ export class Subject {
     subject_name: string;
     date: string[];
     options: string[];
-    general_options: string[]
+    general_options: string[];
+    group: string
 }
 
 
