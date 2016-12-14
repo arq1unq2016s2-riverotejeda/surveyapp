@@ -15,6 +15,28 @@
     </tr>
 
 </table>
+
+  <table class="table table-bordered">
+    <tr>
+      <td>Materia</td>
+      <td>C1</td>
+      <td>C2</td>
+      <td>C3</td>
+      <td>C4</td>
+      <td>No cursa</td>
+      <td>Ya cursó</td>
+      <td>Horario</td>
+    </tr>
+    <tr *ngFor="let subject of subjectsStatistics" class="{{subject.status}}">
+      <td>{{subject.subject}}</td>
+      <td>{{subject.comision}}</td>
+      <td>{{ subject.occupation}}</td>
+      <td>{{ subject.percentage}}%</td>
+    </tr>
+
+  </table>
+
+
 </div>
 <router-outlet></router-outlet>
 

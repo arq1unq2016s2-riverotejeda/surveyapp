@@ -13,6 +13,7 @@ import {SubjectStatistic} from "./model/subject_statistic";
 })
 export class StudentStaticsComponent implements OnInit{
   subjectsStatistics: SubjectStatistic[];
+  subjectsStatisticsBySubject: SubjectStatistic[];
   constructor(private staticsService: StaticsService,
               private router: Router){
 
@@ -29,6 +30,9 @@ export class StudentStaticsComponent implements OnInit{
           //this.subjectsStatistics = res;
           //console.log(res);
           this.subjectsStatistics  = this.makeJson(res);
+          this.subjectsStatisticsBySubject = this.orderStatistics(res);
+          console.log(this.subjectsStatistics);
+          console.log(res);
           //console.log(this.subjectsStatistics);
         },
         error => console.log("Error HTTP GET Service") // in case of failure show this message
@@ -43,7 +47,11 @@ export class StudentStaticsComponent implements OnInit{
       res[index] = stat;
      }
      return res;
+  }
 
+  orderStatistics(se: SubjectStatistic[]){
+    var res: [];
+    return  res;
   }
 
 
