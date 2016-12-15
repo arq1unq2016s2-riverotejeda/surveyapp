@@ -21,3 +21,25 @@ export class SubjectStatistic {
 
 
 
+export class Statistic {
+
+  constructor(public subject: string,
+              public c1: ComisionData,
+              public c2: ComisionData,
+              public c3: ComisionData,
+              public c4: ComisionData,
+              public noCursan: number,
+              public yaCursaron: number,
+              public horario: number){}
+}
+
+export class ComisionData{
+
+  status: string;
+  constructor(public comision: string, public percentage: number, public occupation: number){
+    if (percentage > 90) { this.status = "warning"}
+    else {this.status = "success"};
+  }
+
+}
+

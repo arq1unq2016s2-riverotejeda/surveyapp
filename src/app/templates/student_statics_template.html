@@ -7,11 +7,11 @@
     <td>Inscriptos</td>
     <td>Porcentaje de ocupación</td>
   </tr>
-    <tr *ngFor="let subject of subjectsStatistics" class="{{subject.status}}">
+    <tr *ngFor="let subject of subjectsStatistics" >
       <td>{{subject.subject}}</td>
       <td>{{subject.comision}}</td>
       <td>{{ subject.occupation}}</td>
-      <td>{{ subject.percentage}}%</td>
+      <td class="warning">{{ subject.percentage}}%</td>
     </tr>
 
 </table>
