@@ -1,20 +1,6 @@
 <div class="custom-container">
 <h2>Porcentaje de ocupación de materias por comisión</h2>
-<table class="table table-bordered">
-  <tr>
-    <td>Materia</td>
-    <td>Comisión</td>
-    <td>Inscriptos</td>
-    <td>Porcentaje de ocupación</td>
-  </tr>
-    <tr *ngFor="let subject of subjectsStatistics" >
-      <td>{{subject.subject}}</td>
-      <td>{{subject.comision}}</td>
-      <td>{{ subject.occupation}}</td>
-      <td class="warning">{{ subject.percentage}}%</td>
-    </tr>
 
-</table>
 
   <table class="table table-bordered">
     <tr>
@@ -27,11 +13,15 @@
       <td>Ya cursó</td>
       <td>Horario</td>
     </tr>
-    <tr *ngFor="let subject of subjectsStatistics" class="{{subject.status}}">
+    <tr *ngFor="let subject of subjectsStatisticsBySubject">
       <td>{{subject.subject}}</td>
-      <td>{{subject.comision}}</td>
-      <td>{{ subject.occupation}}</td>
-      <td>{{ subject.percentage}}%</td>
+      <td class="subject.c1.status">{{subject.c1.percentage}}%</td>
+      <td class="subject.c2.status">{{subject.c2.percentage}}%</td>
+      <td class="subject.c3.status">{{subject.c3.percentage}}%</td>
+      <td class="subject.c4.status">{{subject.c4.percentage}}%</td>
+      <td>{{ subject.noCursan}}</td>
+      <td>{{ subject.yaCursaron}}</td>
+      <td>{{ subject.horario}}</td>
     </tr>
 
   </table>
@@ -39,5 +29,3 @@
 
 </div>
 <router-outlet></router-outlet>
-
-

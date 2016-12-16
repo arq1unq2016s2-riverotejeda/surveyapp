@@ -22,24 +22,29 @@ export class SubjectStatistic {
 
 
 export class Statistic {
+c1: ComisionData;
+c2: ComisionData;
+c3: ComisionData;
+c4: ComisionData;
+
 
   constructor(public subject: string,
-              public c1: ComisionData,
-              public c2: ComisionData,
-              public c3: ComisionData,
-              public c4: ComisionData,
               public noCursan: number,
               public yaCursaron: number,
-              public horario: number){}
+              public horario: number){
+    this.c1 = new ComisionData("C1", 0, '-');
+    this.c2 = new ComisionData("C2", 0, '-');
+    this.c3 = new ComisionData("C3", 0, '-');
+    this.c4 = new ComisionData("C4", 0, '-');
+              }
 }
 
 export class ComisionData{
 
   status: string;
-  constructor(public comision: string, public percentage: number, public occupation: number){
+  constructor(public comision: string, public percentage: number, public occupation: any){
     if (percentage > 90) { this.status = "warning"}
     else {this.status = "success"};
   }
 
 }
-

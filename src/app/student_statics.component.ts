@@ -4,7 +4,7 @@ import Any = jasmine.Any;
 import {StaticsService} from "./services/statics.service";
 import {Subject} from "./model/subject";
 import {Completeness} from "./model/completeness";
-import {SubjectStatistic, ComisionData} from "./model/subject_statistic";
+import {SubjectStatistic, ComisionData, Statistic} from "./model/subject_statistic";
 
 @Component({
   selector: 'my-home',
@@ -27,13 +27,9 @@ export class StudentStaticsComponent implements OnInit{
     this.staticsService.getSubjectsStatistics()
       .subscribe(
         res => {
-          //this.subjectsStatistics = res;
-          console.log(res);
+          //console.log(res);
           this.subjectsStatistics  = this.makeJson(res);
           this.groupStatistics();
-          //console.log(this.subjectsStatistics);
-          //console.log(res);
-          //console.log(this.subjectsStatistics);
         },
         error => console.log("Error HTTP GET Service") // in case of failure show this message
       );
@@ -56,6 +52,7 @@ export class StudentStaticsComponent implements OnInit{
 
 
   groupStatistics(){
+    this.subjectsStatisticsBySubject = [];
     var statistics = [];
     for(var index in this.subjectsStatistics){
       var currentSubject = this.subjectsStatistics[index];
@@ -66,7 +63,6 @@ export class StudentStaticsComponent implements OnInit{
       var currentSubject = this.subjectsStatistics[index];
       statistics[currentSubject.subject].push(currentSubject);
     }
-
     var statisticsBySubject = [];
     for(var index in statistics){
       var listC = [];
@@ -75,15 +71,29 @@ export class StudentStaticsComponent implements OnInit{
         var com = new ComisionData(currentStatistic.comision, currentStatistic.percentage, currentStatistic.occupation);
         listC.push({clave: currentStatistic.comision, valor: com})
       }
-
-
       statisticsBySubject.push({clave : index, valor :listC});
     }
-    console.log(statisticsBySubject);
-
     for(var index in statisticsBySubject){
-
+      var current = statisticsBySubject[index];
+        var s = new Statistic(current.clave,  0, 0, 0);
+        for(var i in current.valor){
+          var c = current.valor[i];
+          if (c.clave == "C1") {
+            s.c1 = c.valor;
+          }
+          if (c.clave == "C2") {
+            s.c2 = c.valor;
+          }
+          if (c.clave == "C3") {
+            s.c3 = c.valor;
+          }
+          if (c.clave == "C4") {
+            s.c4 = c.valor;
+          }
+        }
+        this.subjectsStatisticsBySubject.push(s);
     }
+    //console.log(this.subjectsStatisticsBySubject);
   }
 
 
