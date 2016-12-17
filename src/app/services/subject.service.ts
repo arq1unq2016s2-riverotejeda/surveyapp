@@ -27,6 +27,11 @@ export class SubjectService {
     return this._http.get(`${Configuration.API_ENDPOINT}/getLastActiveYear`).map(this.extractData).catch(this.handleError);
   }
 
+  public getAllYears(): Observable<[string]> {
+    return this._http.get(`${Configuration.API_ENDPOINT}/getAllYears`).map(this.extractData).catch(this.handleError);
+  }
+
+
   private extractData(res: Response) {
     let body = res.json();
     return body;

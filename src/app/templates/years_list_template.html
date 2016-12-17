@@ -1,0 +1,12 @@
+
+<div class="custom-container">
+
+  <div class="list-group">
+    <a href="#" class="list-group-item disabled">
+      Cuatrimestres anteriores
+    </a>
+    <a *ngFor="let y of activeYears">
+      <a routerLink="/dashboard/student-statics/{{y}}" routerLinkActive="active" class="list-group-item">Cuatrimestre {{y}}</a>
+    </a>
+  </div>
+</div>

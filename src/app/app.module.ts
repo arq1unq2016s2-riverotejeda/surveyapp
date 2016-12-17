@@ -19,6 +19,7 @@ import { AUTH_PROVIDERS }      from 'angular2-jwt';
 import {AuthComponent} from "./auth.component";
 import {OverviewComponent} from "./overview.component";
 import {AuthGuard} from "./security/auth.guard";
+import {AllYearsStaticsComponent} from "./years_statics.component";
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import {AuthGuard} from "./security/auth.guard";
     StudentStaticsComponent,
     OverviewComponent,
     AuthComponent,
-    StudentCompletenessComponent],
+    StudentCompletenessComponent,
+    AllYearsStaticsComponent],
   bootstrap:    [ AppComponent ],
   exports:      [ RouterModule ],
   providers: [

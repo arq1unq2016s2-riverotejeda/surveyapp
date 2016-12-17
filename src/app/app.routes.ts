@@ -9,6 +9,7 @@ import {StudentCompletenessComponent} from "./student_completeness.component";
 import {WelcomeComponent} from "./welcome.component";
 import {OverviewComponent} from "./overview.component";
 import {AuthGuard} from "./security/auth.guard";
+import {AllYearsStaticsComponent} from "./years_statics.component";
 
 
 export const routes: Routes = [
@@ -23,7 +24,8 @@ export const routes: Routes = [
       { path: 'students', component: StudentsComponent, canActivate: [AuthGuard] },
       { path: 'student-statics/:year', component: StudentStaticsComponent, canActivate: [AuthGuard] },
       { path: 'student-statics', component: StudentStaticsComponent, canActivate: [AuthGuard] },
-      { path: 'survey-statics', component: StudentCompletenessComponent, canActivate: [AuthGuard]}
+      { path: 'survey-statics', component: StudentCompletenessComponent, canActivate: [AuthGuard]},
+      { path: 'all-years', component: AllYearsStaticsComponent, canActivate: [AuthGuard]}
     ]
   },
   { path: '**', redirectTo: 'dashboard' }

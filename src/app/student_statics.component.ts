@@ -22,16 +22,16 @@ export class StudentStaticsComponent implements OnInit{
   }
 
   ngOnInit() :void{
-    this.subjectService.getLastActiveYear().subscribe(
-      res => {
-        this.route.params.subscribe(params => {
-          if(params['year']){
-            this.year = params['year'];
-          }else{
-            this.year = res;
-          }
-        });
-      });
+    this.route.params.subscribe(params => {
+        if(params['year']){
+          this.year = params['year'];
+        }else{
+          this.subjectService.getLastActiveYear().subscribe(
+            res => {
+              this.year = res;
+            });
+        }
+    });
 
     this.getStatistics();
   }
