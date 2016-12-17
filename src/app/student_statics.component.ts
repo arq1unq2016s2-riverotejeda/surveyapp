@@ -25,15 +25,17 @@ export class StudentStaticsComponent implements OnInit{
     this.route.params.subscribe(params => {
         if(params['year']){
           this.year = params['year'];
+          this.getStatistics();
+
         }else{
           this.subjectService.getLastActiveYear().subscribe(
             res => {
               this.year = res;
+              this.getStatistics();
             });
         }
     });
 
-    this.getStatistics();
   }
 
   getStatistics() {
