@@ -21,6 +21,7 @@ export const routes: Routes = [
       { path: '', redirectTo: 'overview', pathMatch: 'full' },
       { path: 'overview', component: OverviewComponent, canActivate: [AuthGuard]},
       { path: 'students', component: StudentsComponent, canActivate: [AuthGuard] },
+      { path: 'student-statics/:year', component: StudentStaticsComponent, canActivate: [AuthGuard] },
       { path: 'student-statics', component: StudentStaticsComponent, canActivate: [AuthGuard] },
       { path: 'survey-statics', component: StudentCompletenessComponent, canActivate: [AuthGuard]}
     ]

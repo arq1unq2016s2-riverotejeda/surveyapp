@@ -3,7 +3,8 @@ export class Survey {
     public student_name: string,
     public legajo: string,
     public token: string,
-    public selected_subjects: SelectedSubject[]) {  }
+    public selected_subjects: SelectedSubject[],
+    public school_year: string) {  }
 }
 
 export class SelectedSubject {

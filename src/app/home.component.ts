@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 
-import { Configuration } from './home.constants';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/throw';
@@ -36,30 +35,35 @@ export class HomeComponent implements OnInit{
 
       });
       this.getSubjects();
+
     }
 
     getSubjects() {
-        this.subjectService.getSubjects(this.token)
+      this.subjectService.getLastActiveYear().subscribe(
+        lastActiveYear => {
+          this.subjectService.getSubjects(this.token, lastActiveYear)
             .subscribe(
-                res => {
-                    res.options.map(survey => {
-                        for (let option of survey.options){
-                            var option_translated = SubjectStatusTranslator.subjectStatusMessage[option];
-                            survey.general_options.push(option_translated);
-                        }
-                    });
+              res => {
+                res.options.map(survey => {
+                  for (let option of survey.options) {
+                    var option_translated = SubjectStatusTranslator.subjectStatusMessage[option];
+                    survey.general_options.push(option_translated);
+                  }
+                });
 
-                  this.mySubjects = res.options;
-                  this.groupSubjects();
-                  // este atributo nuevo es para saber si el alumno ya tiene una encuesta completada
-                  if(res.completed_survey==null){
-                      this.model=new Survey(res.student_name, res.legajo,this.token, []);
-                    }else{
-                      this.model=new Survey(res.student_name, res.legajo,this.token, res.completed_survey.selected_subjects);
-                    }
-                },
-                error => console.log("Error HTTP GET Service") // in case of failure show this message
+                this.mySubjects = res.options;
+                this.groupSubjects();
+                // este atributo nuevo es para saber si el alumno ya tiene una encuesta completada
+                if (res.completed_survey == null) {
+                  this.model = new Survey(res.student_name, res.legajo, this.token, [], lastActiveYear);
+                } else {
+                  this.model = new Survey(res.student_name, res.legajo, this.token,
+                    res.completed_survey.selected_subjects, lastActiveYear);
+                }
+              },
+              error => console.log("Error HTTP GET Service") // in case of failure show this message
             );
+        });
     }
 
     isSelected( subject:Subject,  option:String){

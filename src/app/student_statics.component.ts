@@ -1,29 +1,43 @@
 import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import {Router, ActivatedRoute} from "@angular/router";
 import Any = jasmine.Any;
 import {StaticsService} from "./services/statics.service";
-import {Subject} from "./model/subject";
-import {Completeness} from "./model/completeness";
 import {SubjectStatistic} from "./model/subject_statistic";
+import {SubjectService} from "./services/subject.service";
 
 @Component({
   selector: 'my-home',
   templateUrl: './templates/student_statics_template.html',
-  providers: [StaticsService]
+  providers: [StaticsService, SubjectService]
 })
 export class StudentStaticsComponent implements OnInit{
   subjectsStatistics: SubjectStatistic[];
-  constructor(private staticsService: StaticsService,
-              private router: Router){
+  private year: string;
 
+
+  constructor(private staticsService: StaticsService,
+              private subjectService: SubjectService,
+              private router: Router,
+              private route: ActivatedRoute){
   }
 
   ngOnInit() :void{
+    this.subjectService.getLastActiveYear().subscribe(
+      res => {
+        this.route.params.subscribe(params => {
+          if(params['year']){
+            this.year = params['year'];
+          }else{
+            this.year = res;
+          }
+        });
+      });
+
     this.getStatistics();
   }
 
   getStatistics() {
-    this.staticsService.getSubjectsStatistics()
+    this.staticsService.getSubjectsStatistics(this.year)
       .subscribe(
         res => {
           //this.subjectsStatistics = res;
@@ -34,6 +48,7 @@ export class StudentStaticsComponent implements OnInit{
         error => console.log("Error HTTP GET Service") // in case of failure show this message
       );
   }
+
 
   makeJson(se: SubjectStatistic[]): SubjectStatistic[]{
     let res: SubjectStatistic[] = [];

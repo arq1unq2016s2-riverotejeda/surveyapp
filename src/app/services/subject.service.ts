@@ -19,8 +19,12 @@ export class SubjectService {
   constructor(private _http: Http) {
   }
 
-  public getSubjects(token: string): Observable<SurveyModel> {
-    return this._http.get(`${Configuration.API_ENDPOINT}/subjects/${token}`).map(this.extractData).catch(this.handleError);
+  public getSubjects(token: string, year:string): Observable<SurveyModel> {
+    return this._http.get(`${Configuration.API_ENDPOINT}/subjects/${token}/${year}`).map(this.extractData).catch(this.handleError);
+  }
+
+  public getLastActiveYear(): Observable<string> {
+    return this._http.get(`${Configuration.API_ENDPOINT}/getLastActiveYear`).map(this.extractData).catch(this.handleError);
   }
 
   private extractData(res: Response) {

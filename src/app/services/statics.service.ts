@@ -17,16 +17,12 @@ export class StaticsService {
   constructor(private _http: Http) {
   }
 
-  public getSurveyData(): Observable<SurveyData>{
-    return this._http.get(`${Configuration.API_ENDPOINT}/surveysData`).map(this.extractData).catch(this.handleError);
+  public getSurveyCompletition(year: string): Observable<Completeness>{
+    return this._http.get(`${Configuration.API_ENDPOINT}/surveysCompletition/${year}`).map(this.extractData).catch(this.handleError);
   }
 
-  public getSurveyCompletition(): Observable<Completeness>{
-    return this._http.get(`${Configuration.API_ENDPOINT}/surveysCompletition`).map(this.extractData).catch(this.handleError);
-  }
-
-  public getSubjectsStatistics(): Observable<SubjectStatistic[]> {
-    return this._http.get(`${Configuration.API_ENDPOINT}/subjectsOccupation`).map(this.extractData).catch(this.handleError);
+  public getSubjectsStatistics(year: string): Observable<SubjectStatistic[]> {
+      return this._http.get(`${Configuration.API_ENDPOINT}/subjectsOccupation/${year}`).map(this.extractData).catch(this.handleError);
   }
 
   private extractData(res: Response) {

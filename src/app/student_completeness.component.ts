@@ -3,21 +3,24 @@ import {Router} from "@angular/router";
 import Any = jasmine.Any;
 import {Completeness} from "./model/completeness";
 import {StaticsService} from "./services/statics.service";
+import {SubjectService} from "./services/subject.service";
 
 @Component({
   selector: 'my-home',
   templateUrl: './templates/student_completeness_template.html',
   styleUrls: [ './templates/font-awesome.min.css', './templates/custom.min.css'],
-
-
-  providers: [StaticsService]
+  providers: [StaticsService, SubjectService]
 })
 export class StudentCompletenessComponent implements OnInit{
 
   subjectsCompleteness: Completeness;
+  private year: null;
 
   constructor(private staticsService: StaticsService,
+              private subjectService: SubjectService,
               private router: Router){
+
+
   }
 
   ngOnInit() :void{
@@ -26,13 +29,15 @@ export class StudentCompletenessComponent implements OnInit{
 
   public getCompleteness(){
 
-    this.staticsService.getSurveyCompletition()
-      .subscribe(
-        completition => {
-                this.subjectsCompleteness= completition;
-                },
-              error => console.log("Error HTTP GET Service") // in case of failure show this message
-            );
-
+    this.subjectService.getLastActiveYear().subscribe(
+      res => {
+        this.staticsService.getSurveyCompletition(res)
+          .subscribe(
+            completition => {
+              this.subjectsCompleteness= completition;
+            },
+            error => console.log("Error HTTP GET Service") // in case of failure show this message
+          );
+      });
   }
 }
