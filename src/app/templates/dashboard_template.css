@@ -36,7 +36,7 @@ body {
   .sidebar {
     position: absolute;
     height: 200%;
-    top: 81px;
+    top: 65px;
     bottom: 0;
     left: 0;
     z-index: 1000;
