@@ -1,4 +1,4 @@
-<div class="custom-container">
+<div class="custom-container-n">
 <h2>Porcentaje de ocupación de materias por comisión</h2>
 
 
@@ -15,13 +15,13 @@
     </tr>
     <tr *ngFor="let subject of statistics">
       <td>{{subject.subject}}</td>
-      <td class="subject.c1.status">{{subject.c1.occupation}}/{{subject.c1.quota}}</td>
-      <td class="subject.c2.status">{{subject.c2.occupation}}/{{subject.c2.quota}}</td>
-      <td class="subject.c3.status">{{subject.c3.occupation}}/{{subject.c3.quota}}</td>
-      <td class="subject.c4.status">{{subject.c4.occupation}}/{{subject.c4.quota}}</td>
-      <td>{{ subject.not_yet}}</td>
-      <td>{{ subject.approved}}</td>
-      <td>{{ subject.bad_schedule}}</td>
+      <td class="{{subject.c1.status}}">{{subject.c1.occupation}}/{{subject.c1.quota}}</td>
+      <td class="{{subject.c2.status}}">{{subject.c2.occupation}}/{{subject.c2.quota}}</td>
+      <td class="{{subject.c3.status}}">{{subject.c3.occupation}}/{{subject.c3.quota}}</td>
+      <td class="{{subject.c4.status}}">{{subject.c4.occupation}}/{{subject.c4.quota}}</td>
+      <td class="active">{{ subject.not_yet}}</td>
+      <td class="active">{{ subject.approved}}</td>
+      <td class="active">{{ subject.bad_schedule}}</td>
     </tr>
 
   </table>

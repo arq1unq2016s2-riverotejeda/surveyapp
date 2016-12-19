@@ -39,14 +39,14 @@ export class ComisionData {
 
   status: string;
   constructor(public comision: string, public occupation: any, public quota: any) {
-    status = "success";
-    if ((quota - occupation) < 3) { this.status = "warning" }
+    if (occupation > quota) {this.status = "danger"}
+    else if ((quota - occupation) < 3) { this.status = "warning" }
     else { this.status = "success" };
     if (quota == 0){
       this.occupation= "-";
       this.quota= "-";
+      this.status = "active";
     }
-  //  console.log(comision+'  '+status);
   }
 
 }

@@ -8,7 +8,7 @@ import {SubjectService} from "./services/subject.service";
 @Component({
   selector: 'my-home',
   templateUrl: './templates/student_completeness_template.html',
-  styleUrls: [ './templates/font-awesome.min.css', './templates/custom.min.css'],
+  styleUrls: [ /*'./templates/font-awesome.min.css', */'./templates/custom.min.css','./templates/student_completeness.css'],
   providers: [StaticsService, SubjectService]
 })
 export class StudentCompletenessComponent implements OnInit{
