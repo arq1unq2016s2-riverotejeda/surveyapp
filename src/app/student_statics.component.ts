@@ -9,6 +9,7 @@ import {SubjectStatistic, ComisionData, Statistic} from "./model/subject_statist
 @Component({
   selector: 'my-home',
   templateUrl: './templates/student_statics_template.html',
+  styleUrls: [ './templates/student_statistics.css'],
   providers: [StaticsService, SubjectService]
 })
 export class StudentStaticsComponent implements OnInit{
